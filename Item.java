@@ -1,4 +1,5 @@
 
+
 public class Item {
     private String name;
     private int number;  //필드
@@ -27,10 +28,14 @@ public class Item {
     public String get_Item(String Item_Name, int number) {
         Item item = new Item(Item_Name, number);
         return item.getName() + " " + number + "개를 획득했습니다.";
+        
     }
     
     public String getName() {
         return name;
+    }
+    public int getNumber() {
+        return number;
     }
 
     public static class HealingPotion extends Item {
@@ -43,6 +48,10 @@ public class Item {
 
         public int getEffect() {
             return effect;
+        }
+        public void printInfo() {
+            System.out.println("이름: " + getName());
+            System.out.println("개수: " + getNumber());
         }
     }
 	/* 만약 포션종류를 늘리고자 하면 이런식으로 늘리면 될것 같아요
@@ -68,6 +77,10 @@ public class Item {
         public int getTrainerLevel() {
             return trainerLevel;
         }
+        public void printInfo() {
+            System.out.println("이름: " + getName());
+            System.out.println("개수: " + getNumber());
+        }
     }
 
 
@@ -82,6 +95,11 @@ public class Item {
         public int getExp() {
             return exp;
         }
+        public void printInfo() {
+            System.out.println("이름: " + getName());
+            System.out.println("개수: " + getNumber());
+        }
+        
     }
 }
 
