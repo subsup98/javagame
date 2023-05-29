@@ -34,10 +34,10 @@ public class Trainer {
 
     public void Trainer_Info(String Name) {
         if (this.Name.equals(Name)) {
-            System.out.println("Name: " + this.Name);
+            System.out.println("이름: " + this.Name);
             System.out.println("Level: " + this.Level);
             System.out.println("EXP: " + this.EXP);
-            System.out.println("Badge: " + this.Badge);
+            System.out.println("뱃지: " + this.Badge);
         }	
     }
 }
