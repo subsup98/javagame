@@ -100,7 +100,7 @@ public class Pokemon {
     private String attribute; //추가
     private int speed;
 
-    public Pokemon(String name, int level, int maxHp, int attack, int defense, int speed) {
+    public Pokemon(String name, int level, int maxHp, int attack, int defense,String attribute, int speed) {
         this.name = name;
         this.level = level;
         this.maxHp = maxHp;
