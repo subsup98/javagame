@@ -1,3 +1,5 @@
+package pokemongame_;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -6,51 +8,51 @@ public class Message
 	static int choice;
 	public static void obacsa()
 	{   Scanner sc = new Scanner(System.in);
-		System.out.print("???: ¹İ°©´Ù!  (¿£ÅÍ¸¦ ´©¸£½Ã¸é ÁøÇàµË´Ï´Ù.)");
+		System.out.print("???: ë°˜ê°‘ë‹¤!  (ì—”í„°ë¥¼ ëˆ„ë¥´ì‹œë©´ ì§„í–‰ë©ë‹ˆë‹¤.)");
 		pause();
-		System.out.print("Æ÷ÄÏ¸ó½ºÅÍÀÇ ¼¼°è¿¡ Àß¿Ô´Ü´Ù.");
+		System.out.print("í¬ì¼“ëª¬ìŠ¤í„°ì˜ ì„¸ê³„ì— ì˜ì™”ë‹¨ë‹¤.");
 		pause();pause();
-		System.out.println("³ªÀÇ ÀÌ¸§Àº ¿À¹Ú»ç");
-		System.out.print("¸ğµÎ¿¡°Ô Æ÷ÄÏ¸ó ¹Ú»ç¶ó°í Á¸°æ¹Ş°í ÀÖ´Ü´Ù.");
+		System.out.println("ë‚˜ì˜ ì´ë¦„ì€ ì˜¤ë°•ì‚¬");
+		System.out.print("ëª¨ë‘ì—ê²Œ í¬ì¼“ëª¬ ë°•ì‚¬ë¼ê³  ì¡´ê²½ë°›ê³  ìˆë‹¨ë‹¤.");
 		pause();pause();
-		System.out.print("Æ÷ÄÏ¸ó½ºÅÍ..............Æ÷ÄÏ¸ó");
+		System.out.print("í¬ì¼“ëª¬ìŠ¤í„°..............í¬ì¼“ëª¬");
 		pause();pause();
-		System.out.println("ÀÌ¼¼°è¿¡´Â Æ÷ÄÏ¸ó½ºÅÍ¶ó°í ºÒ·ÁÁö´Â");
-		System.out.print("»ı¸íÃ¼µéÀÌ µµÃ³¿¡ »ì°íÀÖ´Ù!");
+		System.out.println("ì´ì„¸ê³„ì—ëŠ” í¬ì¼“ëª¬ìŠ¤í„°ë¼ê³  ë¶ˆë ¤ì§€ëŠ”");
+		System.out.print("ìƒëª…ì²´ë“¤ì´ ë„ì²˜ì— ì‚´ê³ ìˆë‹¤!");
 		pause();pause();
-		System.out.print("»ç¶÷Àº Æ÷ÄÏ¸óµé°ú Á¤´ä°Ô Áö³»°Å³ª");
+		System.out.print("ì‚¬ëŒì€ í¬ì¼“ëª¬ë“¤ê³¼ ì •ë‹µê²Œ ì§€ë‚´ê±°ë‚˜");
 		pause();pause();
-		System.out.print("ÇÔ²² ½Î¿ì°Å³ª........");
+		System.out.print("í•¨ê»˜ ì‹¸ìš°ê±°ë‚˜........");
 		pause();pause();
-		System.out.print("¼­·Î µµ¿Í°¡¸ç »ì¾Æ°¡°í ÀÖ´Ü´Ù.");
+		System.out.print("ì„œë¡œ ë„ì™€ê°€ë©° ì‚´ì•„ê°€ê³  ìˆë‹¨ë‹¤.");
 		pause();pause();
-		System.out.print("ÇÏÁö¸¸ ¿ì¸®µéÀº Æ÷ÄÏ¸ó ÀüºÎ¸¦ ¾Ë°í ÀÖÁö´Â ¸øÇÏ´Ù.");
+		System.out.print("í•˜ì§€ë§Œ ìš°ë¦¬ë“¤ì€ í¬ì¼“ëª¬ ì „ë¶€ë¥¼ ì•Œê³  ìˆì§€ëŠ” ëª»í•˜ë‹¤.");
 		pause();pause();
-		System.out.print("Æ÷ÄÏ¸óÀÇ ºñ¹ĞÀº ¾ÆÁ÷µµ ÀÜ¶àÀÖ´Ù!");
+		System.out.print("í¬ì¼“ëª¬ì˜ ë¹„ë°€ì€ ì•„ì§ë„ ì”ëœ©ìˆë‹¤!");
 		pause();pause();
-		System.out.print("³ª´Â ±×°ÍÀ» ¹àÇô³»±â À§ÇÏ¿©");
+		System.out.print("ë‚˜ëŠ” ê·¸ê²ƒì„ ë°í˜€ë‚´ê¸° ìœ„í•˜ì—¬");
 		pause();pause();
-		System.out.print("¸ÅÀÏ Æ÷ÄÏ¸ó ¿¬±¸¸¦ °è¼ÓÇÏ°í ÀÖ´Ù´Â ¸»ÀÌ´Ù!");
+		System.out.print("ë§¤ì¼ í¬ì¼“ëª¬ ì—°êµ¬ë¥¼ ê³„ì†í•˜ê³  ìˆë‹¤ëŠ” ë§ì´ë‹¤!");
 		pause();pause();
-		System.out.print("±×·³.........");
+		System.out.print("ê·¸ëŸ¼.........");
 		pause();pause();
-		System.out.print("½½½½ ³ÊÀÇ ÀÌ¸§À» °¡¸£ÃÄ´Ù¿À");
+		System.out.print("ìŠ¬ìŠ¬ ë„ˆì˜ ì´ë¦„ì„ ê°€ë¥´ì³ë‹¤ì˜¤");
 		pause();pause();
 		System.out.println("=========================================");
-		System.out.println("³ªÀÇ ÀÌ¸§Àº?(Ä¿¼­¸¦ ÀÌ°÷ ¾Æ·¡·Î ÀÌµ¿ÇÏ¿© ÀÔ·ÂÇØÁÖ¼¼¿ä)");
+		System.out.println("ë‚˜ì˜ ì´ë¦„ì€?(ì»¤ì„œë¥¼ ì´ê³³ ì•„ë˜ë¡œ ì´ë™í•˜ì—¬ ì…ë ¥í•´ì£¼ì„¸ìš”)");
 		name_player = sc.next();
 		System.out.println(name_player+"!!!!");
-		System.out.print("ÁØºñ´Â µÇ¾ú´Â°¡?");
+		System.out.print("ì¤€ë¹„ëŠ” ë˜ì—ˆëŠ”ê°€?");
 		pause();
-		System.out.print("µåµğ¾î ÀÌÁ¦ºÎÅÍ ³ÊÀÇ ÀÌ¾ß±â°¡ ½ÃÀÛµÇ¾îÁø´Ù");
+		System.out.print("ë“œë””ì–´ ì´ì œë¶€í„° ë„ˆì˜ ì´ì•¼ê¸°ê°€ ì‹œì‘ë˜ì–´ì§„ë‹¤");
 		pause();pause();
-		System.out.println("Áñ°Å¿î °Íµµ ±«·Î¿î °Íµµ");
-		System.out.print("ÀÜ¶à ³Ê¸¦ ±â´Ù¸®°í ÀÖÀ»°ÍÀÌ´Ù!!!");
+		System.out.println("ì¦ê±°ìš´ ê²ƒë„ ê´´ë¡œìš´ ê²ƒë„");
+		System.out.print("ì”ëœ© ë„ˆë¥¼ ê¸°ë‹¤ë¦¬ê³  ìˆì„ê²ƒì´ë‹¤!!!");
 		pause();pause();
-		System.out.println("²Ş°ú ¸ğÇè°ú!");
-		System.out.print("Æ÷ÄÏ¸ó½ºÅÍÀÇ ¼¼°è¿¡!!!");
+		System.out.println("ê¿ˆê³¼ ëª¨í—˜ê³¼!");
+		System.out.print("í¬ì¼“ëª¬ìŠ¤í„°ì˜ ì„¸ê³„ì—!!!");
 		pause();pause();
-		System.out.println("·¿Ã÷ °í!!!!!!");
+		System.out.println("ë ›ì¸  ê³ !!!!!!");
 		pause();pause();
 		for(int i=0;i<15;i++)
 		{System.out.println("=============================================");}
@@ -58,106 +60,106 @@ public class Message
 	}
 	public static void tutorial()
     {   Scanner sc = new Scanner(System.in);
-    	System.out.println("ÅÂÃÊ¸¶À»¿¡ ¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´Ù.");
+    	System.out.println("íƒœì´ˆë§ˆì„ì— ì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤.");
     	
     	
     	while(true) 
     	{
-    	System.out.println("Æ©Åä¸®¾óÀ» ÁøÇàÇÏ½Ã°Ú½À´Ï±î?");
-    	System.out.println("1.³×       2.¾Æ´Ï¿À");
+    	System.out.println("íŠœí† ë¦¬ì–¼ì„ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+    	System.out.println("1.ë„¤       2.ì•„ë‹ˆì˜¤");
     	int ch = Fuction.getChoice();
     	if(ch ==1) {
-    	System.out.println("Æ÷ÄÏ¸ó½ºÅÍ ¼¼»ó¿¡¼­´Â ´Ù¾çÇÑ ¸ğÇèÀÇ ³ª·¡¸¦ ÆîÄ¥¼öÀÖ½À´Ï´Ù.");
-    	System.out.println("´ç½ÅÀÇ Æ÷ÄÏ¸ó°ú »ó´ëÆ÷ÄÏ¸óÀÌ °áÅõ¸¦ ¹úÀÌ°í");
-    	System.out.print("ÀÌ¿¡ ½Â¸®ÇÏ¸é ´ç½ÅÀÇ Æ÷ÄÏ¸óÀº °æÇèÄ¡¸¦¾ò°í ¼ºÀåÇÕ´Ï´Ù!");
+    	System.out.println("í¬ì¼“ëª¬ìŠ¤í„° ì„¸ìƒì—ì„œëŠ” ë‹¤ì–‘í•œ ëª¨í—˜ì˜ ë‚˜ë˜ë¥¼ í¼ì¹ ìˆ˜ìˆìŠµë‹ˆë‹¤.");
+    	System.out.println("ë‹¹ì‹ ì˜ í¬ì¼“ëª¬ê³¼ ìƒëŒ€í¬ì¼“ëª¬ì´ ê²°íˆ¬ë¥¼ ë²Œì´ê³ ");
+    	System.out.print("ì´ì— ìŠ¹ë¦¬í•˜ë©´ ë‹¹ì‹ ì˜ í¬ì¼“ëª¬ì€ ê²½í—˜ì¹˜ë¥¼ì–»ê³  ì„±ì¥í•©ë‹ˆë‹¤!");
     	pause();pause();
-    	System.out.println("°æÇèÄ¡°¡ ¿Ã¶ó°¡¸é ·¹º§¾÷À» ÇÏ°ÔµÇ¸ç");
-    	System.out.print("´ç½ÅÀÇ Æ÷ÄÏ¸óÀº °­ÇØÁö°í,´Ù¾çÇÑ ±â¼úÀ» ½ÀµæÇÒ ¼ö ÀÖ½À´Ï´Ù.");
+    	System.out.println("ê²½í—˜ì¹˜ê°€ ì˜¬ë¼ê°€ë©´ ë ˆë²¨ì—…ì„ í•˜ê²Œë˜ë©°");
+    	System.out.print("ë‹¹ì‹ ì˜ í¬ì¼“ëª¬ì€ ê°•í•´ì§€ê³ ,ë‹¤ì–‘í•œ ê¸°ìˆ ì„ ìŠµë“í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
     	pause();pause();
-    	System.out.println("´ç½ÅÀÇ Æ÷ÄÏ¸óÀÌ ÀÏÁ¤·¹º§¿¡ µµ´ŞÇÏ¸é 'ÁøÈ­'¶ó´Â°ÍÀ» ÇÏ°ÔµÇ´Âµ¥");
-    	System.out.print("´ç½ÅÀÇ Æ÷ÄÏ¸óÀÌ ´õ¿í ´õ °­ÇØÁı´Ï´Ù.");
+    	System.out.println("ë‹¹ì‹ ì˜ í¬ì¼“ëª¬ì´ ì¼ì •ë ˆë²¨ì— ë„ë‹¬í•˜ë©´ 'ì§„í™”'ë¼ëŠ”ê²ƒì„ í•˜ê²Œë˜ëŠ”ë°");
+    	System.out.print("ë‹¹ì‹ ì˜ í¬ì¼“ëª¬ì´ ë”ìš± ë” ê°•í•´ì§‘ë‹ˆë‹¤.");
     	pause();pause();
-    	System.out.println("°áÅõ¸¦ ¹úÀÌ´Ù°¡ »ó´ëÆ÷ÄÏ¸ó¿¡°Ô ÆĞ¹èÇÒ °æ¿ì ");
-    	System.out.print("´ç½ÅÀÇ Æ÷ÄÏ¸óÀº °æÇèÄ¡¸¦ ÀÒ°ÔµË´Ï´Ù.");
+    	System.out.println("ê²°íˆ¬ë¥¼ ë²Œì´ë‹¤ê°€ ìƒëŒ€í¬ì¼“ëª¬ì—ê²Œ íŒ¨ë°°í•  ê²½ìš° ");
+    	System.out.print("ë‹¹ì‹ ì˜ í¬ì¼“ëª¬ì€ ê²½í—˜ì¹˜ë¥¼ ìƒê²Œë©ë‹ˆë‹¤.");
     	pause();pause();
-    	System.out.println("ÆĞ¹èÇÏÁö ¾Ê±â À§ÇØ Æ÷ÄÏ¸ó¼¾ÅÍ¿¡°¡¼­");
-    	System.out.print("Æ÷ÄÏ¸óÀÇ Ã¼·ÂÀ» È¸º¹½ÃÅ³ ¼ö ÀÖ½À´Ï´Ù.");
+    	System.out.println("íŒ¨ë°°í•˜ì§€ ì•Šê¸° ìœ„í•´ í¬ì¼“ëª¬ì„¼í„°ì—ê°€ì„œ");
+    	System.out.print("í¬ì¼“ëª¬ì˜ ì²´ë ¥ì„ íšŒë³µì‹œí‚¬ ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
     	pause();pause();
-    	System.out.println("Çà¿îÀ» º÷´Ï´Ù!!!!! ");
+    	System.out.println("í–‰ìš´ì„ ë¹•ë‹ˆë‹¤!!!!! ");
     	pause();pause();break;}
     	if(ch == 2) break;
-    	else System.out.println("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+    	else System.out.println("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");
     	}
     }
 	public static void startingpok()
 	{Scanner sc = new Scanner(System.in);
-	System.out.println("¡Ú¡Ù¡Ú¡Ù¡Ú¡Ù¡Ú¡Ùµû¸£¸£¸£¸£¸ªµû¸£¸£¸£¸£¸ª¡Ú¡Ù¡Ú¡Ù¡Ú¡Ù¡Ú¡Ù");
-	System.out.print("¿À¹Ú»ç´Ô¿¡°Ô ÀüÈ­°¡ ¿Ô´Ù!!");
+	System.out.println("â˜…â˜†â˜…â˜†â˜…â˜†â˜…â˜†ë”°ë¥´ë¥´ë¥´ë¥´ë¦‰ë”°ë¥´ë¥´ë¥´ë¥´ë¦‰â˜…â˜†â˜…â˜†â˜…â˜†â˜…â˜†");
+	System.out.print("ì˜¤ë°•ì‚¬ë‹˜ì—ê²Œ ì „í™”ê°€ ì™”ë‹¤!!");
 	pause();pause();
-	System.out.println("¿À¹Ú»ç: "+name_player+"!!!");
-	System.out.print("Áö±İ ³» ¿¬±¸½Ç·Î ¿ÍÁÙ ¼ö ÀÖ°Ú³ª?");
+	System.out.println("ì˜¤ë°•ì‚¬: "+name_player+"!!!");
+	System.out.print("ì§€ê¸ˆ ë‚´ ì—°êµ¬ì‹¤ë¡œ ì™€ì¤„ ìˆ˜ ìˆê² ë‚˜?");
 	pause();pause();
 		while(true) 
 		{
-		System.out.println("1.³×       2.¾Æ´Ï¿À");
+		System.out.println("1.ë„¤       2.ì•„ë‹ˆì˜¤");
 	    int ch = Fuction.getChoice(); 
 		if(ch ==1)	 
-		{  System.out.print("¾î¼­¿À°Ô "+name_player+"!!");
+		{  System.out.print("ì–´ì„œì˜¤ê²Œ "+name_player+"!!");
 		   pause();pause();
-		   System.out.println("¸ğÇèÀ» ½ÃÀÛÇÏ·Á¸é ÇÔ²² ÇÒ Æ÷ÄÏ¸óÀÌ ÀÖ¾î¾ßÇÏÁö ¾Ê°Ú³ª?");
-		   System.out.print("³»°¡ ¿©±â 3¸¶¸®ÀÇ Æ÷ÄÏ¸óÀ» ÁØºñÇßÀ¸´Ï °ñ¶óº¸°Ô!!");
+		   System.out.println("ëª¨í—˜ì„ ì‹œì‘í•˜ë ¤ë©´ í•¨ê»˜ í•  í¬ì¼“ëª¬ì´ ìˆì–´ì•¼í•˜ì§€ ì•Šê² ë‚˜?");
+		   System.out.print("ë‚´ê°€ ì—¬ê¸° 3ë§ˆë¦¬ì˜ í¬ì¼“ëª¬ì„ ì¤€ë¹„í–ˆìœ¼ë‹ˆ ê³¨ë¼ë³´ê²Œ!!");
 		   pause();pause();
 		   while(true)
 		   {
-		   System.out.println("1.ÀÌ»óÇØ¾¾   2.ÆÄÀÌ¸®   3.²¿ºÎ±â");
-		   System.out.println("Æ÷ÄÏ¸óÀ» ¼±ÅÃÇØÁÖ¼¼¿ä");
+		   System.out.println("1.ì´ìƒí•´ì”¨   2.íŒŒì´ë¦¬   3.ê¼¬ë¶€ê¸°");
+		   System.out.println("í¬ì¼“ëª¬ì„ ì„ íƒí•´ì£¼ì„¸ìš”");
 		   choice = Fuction.getChoice();
 		   if(choice==1)
-			 {System.out.println("ÀÌ»óÇØ¾¾·Î ÇÏ½Ã°Ú½À´Ï±î?");
-		   	  System.out.println("1.³×       2.¾Æ´Ï¿À");
+			 {System.out.println("ì´ìƒí•´ì”¨ë¡œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+		   	  System.out.println("1.ë„¤       2.ì•„ë‹ˆì˜¤");
 		   	  int choice = Fuction.getChoice(); 
 			  if(choice ==1) 
-			  {System.out.println("ÀÌ»óÇØ¾¾°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");	
-			  System.out.println("ÀÌ»ó!!ÀÌ»ó!!!ÀÌ»óÇØ!!");
+			  {System.out.println("ì´ìƒí•´ì”¨ê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");	
+			  System.out.println("ì´ìƒ!!ì´ìƒ!!!ì´ìƒí•´!!");
 			  pause();pause();
 			  break;}
 			  else if(choice!=1&&choice!=2) 
-			  {System.out.println("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");}  
+			  {System.out.println("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");}  
 			 }
 		      
 		   else if(choice==2)
-			 {System.out.println("ÆÄÀÌ¸®·Î ÇÏ½Ã°Ú½À´Ï±î?");
-		   	  System.out.println("1.³×       2.¾Æ´Ï¿À");
+			 {System.out.println("íŒŒì´ë¦¬ë¡œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+		   	  System.out.println("1.ë„¤       2.ì•„ë‹ˆì˜¤");
 		   	  int choice = Fuction.getChoice(); 
 			  if(choice ==1) 
-			   {System.out.println("ÆÄÀÌ¸®°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
-			   System.out.println("ÆÄÀÌ¸®¤Ó¸®¸±¸®¤ÓÆÄÆÄÆÄÀÌ¤Ó¸®¸®¤Ó");
+			   {System.out.println("íŒŒì´ë¦¬ê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
+			   System.out.println("íŒŒì´ë¦¬ã…£ë¦¬ë¦´ë¦¬ã…£íŒŒíŒŒíŒŒì´ã…£ë¦¬ë¦¬ã…£");
 			   pause();pause();
 			   break;}
 			  else if(choice!=1&&choice!=2) 
-			   {System.out.println("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");}
+			   {System.out.println("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");}
 			  }
 		   else if(choice==3)
-			 {System.out.println("²¿ºÎ±â·Î ÇÏ½Ã°Ú½À´Ï±î?");
-		      System.out.println("1.³×       2.¾Æ´Ï¿À");
+			 {System.out.println("ê¼¬ë¶€ê¸°ë¡œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+		      System.out.println("1.ë„¤       2.ì•„ë‹ˆì˜¤");
 		      int choice = Fuction.getChoice(); 
 			  if(choice ==1) 
-			   {System.out.println("²¿ºÎ±â°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
-			   System.out.println("²¿°í¤Ã°í°î´ì²¿°í°í°í°í°í");
+			   {System.out.println("ê¼¬ë¶€ê¸°ê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
+			   System.out.println("ê¼¬ê³ ã…“ê³ ê³¡ëŒê¼¬ê³ ê³ ê³ ê³ ê³ ");
 			   pause();pause();
 			   break;}
 			  else if(choice!=1&&choice!=2) 
-			   {System.out.println("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");}
+			   {System.out.println("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");}
 			  }
-		   else System.out.println("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+		   else System.out.println("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");
 		   }
-		   System.out.println("¿À¹Ú»ç: ±×·³ Áñ°Å¿î ¿©Çà µÇ°Ô³ª!!!");
+		   System.out.println("ì˜¤ë°•ì‚¬: ê·¸ëŸ¼ ì¦ê±°ìš´ ì—¬í–‰ ë˜ê²Œë‚˜!!!");
 		   pause();pause();
 		   break;
 		}
 		if(ch == 2) 
-		{System.out.println("°ÅÀı ÇÒ ¼ö¾ø´Ù!!!!!");}
-		else System.out.println("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");	  
+		{System.out.println("ê±°ì ˆ í•  ìˆ˜ì—†ë‹¤!!!!!");}
+		else System.out.println("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");	  
 		}
 	    
 	}
@@ -180,7 +182,7 @@ public class Message
 		Pokemon temp2 = null;
 		Pokemon[] pokemons2 =null;
 		Pokemon[] pokemons = new Pokemon[3];
-		System.out.println("1. »õ °ÔÀÓ        2.  ºÒ·¯¿À±â");
+		System.out.println("1. ìƒˆ ê²Œì„        2.  ë¶ˆëŸ¬ì˜¤ê¸°");
 		int ch = Fuction.getChoice(2);
 		while(true) {
 			if(ch==1) 
