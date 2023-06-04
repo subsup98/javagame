@@ -1,462 +1,482 @@
-
+package pokemongame_;
 
 import java.util.Scanner;
 
-public class FightingSystem 
-{  
+public class FightingSystem {
+	
 	public void Catch(Pokemon[] pokemons, Pokemon pok) {
 		for (int i=0; i<3; i++) {
 			Pokemon mypok = pokemons[i];
 			if(mypok ==null) {
 				for (int j=0; j<1; j++) {
-				 System.out.println(pok.name_pok+"À»/¸¦ Àâ¾Ò´Ù!");
+				 System.out.println(pok.name_pok+"ì„/ë¥¼ ì¡ì•˜ë‹¤!");
 				 pokemons[i]=pok;
 				}
 			}
 		}
 		
 	}
-	public void Fight(Pokemon mypok,Pokemon pok)
-	{	//Bgm fight = new Bgm("src/pokemongame_/bgm/battle.mp3");
-		//Bgm win = new Bgm("src/pokemongame_/bgm/win.mp3");
-		//Bgm hit = new Bgm("src/pokemongame_/bgm/hit.mp3");
-		//fight.play();
-		
-		while(true)
-	    { View_fight.fightmain(mypok, pok);
-		  if(mypok.speed>=pok.speed)
-		  {   for(int i=0;i<4;i++)
-		  	  {System.out.print(i+1+"."+mypok.skill[i].name_skill+"  ");}
-			  int ch= Fuction.getChoice(4);
-			  if(!mypok.skill[ch-1].name_skill.equals(""))
-			  System.out.println(mypok.name_pok+"ÀÇ"+mypok.skill[ch-1].name_skill+"°ø°İ!!");
-			  else {System.out.println("ÇØ´ç½ºÅ³Àº »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.");continue;}
-			  if(getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)>0)
-			  {
-			  //hit.play();
-		  	  hit(pok,getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm));
-			  System.out.println(pok.name_pok+"ÀÌ(°¡)"+getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			  }
-			  else 
-			  {//hit.play();
-			   System.out.println(pok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			   hit(pok, 1);												 }
-			  View.pause();
-			  
-			  if(pok.hp<=0) 
-			  {
-			  //fight.close();
-			  //win.play();
-			  System.out.println("ÀüÅõ¿¡¼­ ½Â¸®ÇÏ¼Ì½À´Ï´Ù!!!");
-			  Fuction.sleep(1000);
-			  getExp(mypok,pok);
-			  Fuction.sleep(1000);
-			  levelup(mypok);
-			  Fuction.sleep(1000);
-			  evolve(mypok);
-			  learnSkill(mypok);
-			  Fuction.sleep(1000);
-			 // win.close();
-			  break;
-			  } 
-			  else if(mypok.hp<=0)
-			  {//fight.close();
-			   System.out.println("ÀüÅõ¿¡¼­ ÆĞ¹èÇÏ¼Ì½À´Ï´Ù. ¤Ğ¤Ğ¤Ğ¤Ğ¤Ğ"); View.view_pokemonCenter2(mypok); break;}
-			  
-			  int ch2 = 1;
-			  if(!pok.skill[ch2-1].name_skill.equals(""))
-			  System.out.println(pok.name_pok+"ÀÇ"+pok.skill[ch2-1].name_skill+"°ø°İ!!");
-			  if(getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)>0)
-			  {//hit.play();
-			  hit(mypok,getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm));
-			  System.out.println(mypok.name_pok+"ÀÌ(°¡)"+getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			  }
-			  else
-			  	{// hit.play();
-				  System.out.println(mypok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			  	 hit(mypok, 1);											}
-			  View.pause(); View.pause();
-		  }
-		  else
-		  {
-			  int ch2 = 1;
-			  if(!pok.skill[ch2-1].name_skill.equals(""))
-				  System.out.println(pok.name_pok+"ÀÇ"+pok.skill[ch2-1].name_skill+"°ø°İ!!");
-			  if(getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)>0)
-			  {//hit.play();
-			  hit(mypok,getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm));
-			  System.out.println(mypok.name_pok+"ÀÌ(°¡)"+getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			  }
-			  else
-			  {//hit.play();
-			  System.out.println(mypok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			  hit(mypok, 1);											
-			  }
-			  for(int i=0;i<4;i++)
-		  	  {System.out.print(i+1+"."+mypok.skill[i].name_skill+"  ");}
-			  if(pok.hp<=0) 
-			  {  
-			  //fight.close();
-			  //win.play();
-			  System.out.println("ÀüÅõ¿¡¼­ ½Â¸®ÇÏ¼Ì½À´Ï´Ù!!!");
-			  Fuction.sleep(1000);
-			  getExp(mypok,pok);
-			  Fuction.sleep(1000);
-			  levelup(mypok);
-			  Fuction.sleep(1000);
-			  evolve(mypok);
-			  learnSkill(mypok);
-			  Fuction.sleep(1000);
-			  //win.close();
-			  break;
-			  } 
-			  else if(mypok.hp<=0)
-			  {//fight.close();
-			  System.out.println("\nÀüÅõ¿¡¼­ ÆĞ¹èÇÏ¼Ì½À´Ï´Ù. ¤Ğ¤Ğ¤Ğ¤Ğ¤Ğ"); View.view_pokemonCenter2(mypok); break;}
-			  int ch= Fuction.getChoice(4);
-			  if(!mypok.skill[ch-1].name_skill.equals(""))
-			  System.out.println(mypok.name_pok+"ÀÇ"+mypok.skill[ch-1].name_skill+"°ø°İ!!");
-			  else {System.out.println("ÇØ´ç½ºÅ³Àº »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.");continue;}
-			  if(getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)>0)
-			  {
-			  hit(pok,getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm));
-			  System.out.println(pok.name_pok+"ÀÌ(°¡)"+getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			  }
-			  else 
-			  {System.out.println(pok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			  hit(pok, 1);												 }
-			  View.pause();
-		  }
-		
-		
-	    }
-		pok.hp = pok.hp_max;
-	}
 	
-	public void Fight_challenge(Pokemon mypok,Pokemon pok)
-	{	//Bgm chal = new Bgm("src/pokemongame_/bgm/challenge.mp3");
-		//Bgm win = new Bgm("src/pokemongame_/bgm/win.mp3");
-		//Bgm hit = new Bgm("src/pokemongame_/bgm/hit.mp3");
-		//chal.play();
-		while(true)
-		{ View_fight.fightmain(mypok, pok);
-		if(mypok.speed>=pok.speed)
-		{   for(int i=0;i<4;i++)
-		{System.out.print(i+1+"."+mypok.skill[i].name_skill+"  ");}
-		int ch= Fuction.getChoice(4);
-		if(!mypok.skill[ch-1].name_skill.equals(""))
-			System.out.println(mypok.name_pok+"ÀÇ"+mypok.skill[ch-1].name_skill+"°ø°İ!!");
-		else {System.out.println("ÇØ´ç½ºÅ³Àº »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.");continue;}
-		if(getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)>0)
-		{	//hit.play();
-			hit(pok,getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm));
-			System.out.println(pok.name_pok+"ÀÌ(°¡)"+getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-		}
-		else 
-		{//hit.play();
-			System.out.println(pok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-		hit(pok, 1);												 }
-		View.pause();
-		
-		if(pok.hp<=0) 
-		{  
-		//chal.close();
-		//win.play();
-		System.out.println("ÀüÅõ¿¡¼­ ½Â¸®ÇÏ¼Ì½À´Ï´Ù!!!");
-		Fuction.sleep(1000);
-		getExp(mypok,pok);
-		Fuction.sleep(1000);
-		levelup(mypok);
-		Fuction.sleep(1000);
-		evolve(mypok);
-		learnSkill(mypok);
-		Fuction.sleep(1000);
-		//win.close();
-		if(View.badge<=View.mytown)
-		View.badge++;
-		break;
-		} 
-		else if(mypok.hp<=0)
-		{//chal.close();
-		System.out.println("ÀüÅõ¿¡¼­ ÆĞ¹èÇÏ¼Ì½À´Ï´Ù. ¤Ğ¤Ğ¤Ğ¤Ğ¤Ğ"); View.view_pokemonCenter2(mypok); break;}
-		
-		int ch2 = 1;
-		if(!pok.skill[ch2-1].name_skill.equals(""))
-			System.out.println(pok.name_pok+"ÀÇ"+pok.skill[ch2-1].name_skill+"°ø°İ!!");
-		if(getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)>0)
-		{//hit.play();
-			hit(mypok,getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm));
-			System.out.println(mypok.name_pok+"ÀÌ(°¡)"+getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-		}
-		else
-		{//hit.play();
-			System.out.println(mypok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-		hit(mypok, 1);											}
-		View.pause(); View.pause();
-		}
-		else
-		{
-			int ch2 = 1;
-			if(!pok.skill[ch2-1].name_skill.equals(""))
-				System.out.println(pok.name_pok+"ÀÇ"+pok.skill[ch2-1].name_skill+"°ø°İ!!");
-			if(getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)>0)
-			{	//hit.play();
-				hit(mypok,getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm));
-				System.out.println(mypok.name_pok+"ÀÌ(°¡)"+getGainDamage(mypok, getDamage(pok, pok.skill[ch2-1], pok.skill[ch2-1].pm), pok.skill[ch2-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
+	public void Fight(Pokemon mypok, Pokemon pok, Player player) { // Bgm fight = new Bgm("src/pokemongame_/bgm/battle.mp3");
+											
+		while (true) {
+			View_fight.fightmain(mypok, pok);
+			if (mypok.speed >= pok.speed) {
+				for (int i = 0; i < 4; i++) {
+					System.out.print(i + 1 + "." + mypok.skill[i].name_skill + "  ");
+				}
+				int ch = Fuction.getChoice(4);
+				if (!mypok.skill[ch - 1].name_skill.equals(""))
+					System.out.println(mypok.name_pok + "ì˜" + mypok.skill[ch - 1].name_skill + "ê³µê²©!!");
+				else {
+					System.out.println("í•´ë‹¹ìŠ¤í‚¬ì€ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+					continue;
+				}
+				if (getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+						mypok.skill[ch - 1].pm) > 0) {
+					// hit.play();
+					hit(pok, getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+							mypok.skill[ch - 1].pm));
+					System.out.println(pok.name_pok + "ì´(ê°€)" + getGainDamage(pok,
+							getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm), mypok.skill[ch - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else {// hit.play();
+					System.out.println(pok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(pok, 1);
+				}
+				View.pause();
+
+				if (pok.hp <= 0) {
+					// fight.close();
+					// win.play();
+					System.out.println("ì „íˆ¬ì—ì„œ ìŠ¹ë¦¬í•˜ì…¨ìŠµë‹ˆë‹¤!!!");
+					Fuction.sleep(1000);
+					getExp(mypok, pok, player);
+					Fuction.sleep(1000);
+					levelup(mypok, player);
+					Fuction.sleep(1000);
+					evolve(mypok);
+					learnSkill(mypok);
+					Fuction.sleep(1000);
+					// win.close();
+					break;
+				} else if (mypok.hp <= 0) {// fight.close();
+					System.out.println("ì „íˆ¬ì—ì„œ íŒ¨ë°°í•˜ì…¨ìŠµë‹ˆë‹¤. ã… ã… ã… ã… ã… ");
+					View.view_pokemonCenter2(mypok);
+					break;
+				}
+
+				int ch2 = 1;
+				if (!pok.skill[ch2 - 1].name_skill.equals(""))
+					System.out.println(pok.name_pok + "ì˜" + pok.skill[ch2 - 1].name_skill + "ê³µê²©!!");
+				if (getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+						pok.skill[ch2 - 1].pm) > 0) {// hit.play();
+					hit(mypok, getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+							pok.skill[ch2 - 1].pm));
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + getGainDamage(mypok,
+							getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm), pok.skill[ch2 - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else {// hit.play();
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(mypok, 1);
+				}
+				View.pause();
+				View.pause();
+			} else {
+				int ch2 = 1;
+				if (!pok.skill[ch2 - 1].name_skill.equals(""))
+					System.out.println(pok.name_pok + "ì˜" + pok.skill[ch2 - 1].name_skill + "ê³µê²©!!");
+				if (getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+						pok.skill[ch2 - 1].pm) > 0) {// hit.play();
+					hit(mypok, getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+							pok.skill[ch2 - 1].pm));
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + getGainDamage(mypok,
+							getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm), pok.skill[ch2 - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else {// hit.play();
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(mypok, 1);
+				}
+				for (int i = 0; i < 4; i++) {
+					System.out.print(i + 1 + "." + mypok.skill[i].name_skill + "  ");
+				}
+				if (pok.hp <= 0) {
+					// fight.close();
+					// win.play();
+					System.out.println("ì „íˆ¬ì—ì„œ ìŠ¹ë¦¬í•˜ì…¨ìŠµë‹ˆë‹¤!!!");
+					Fuction.sleep(1000);
+					getExp(mypok, pok, player);
+					Fuction.sleep(1000);
+					levelup(mypok, player);
+					Fuction.sleep(1000);
+					evolve(mypok);
+					learnSkill(mypok);
+					Fuction.sleep(1000);
+					// win.close();
+					break;
+				} else if (mypok.hp <= 0) {// fight.close();
+					System.out.println("\nì „íˆ¬ì—ì„œ íŒ¨ë°°í•˜ì…¨ìŠµë‹ˆë‹¤. ã… ã… ã… ã… ã… ");
+					View.view_pokemonCenter2(mypok);
+					break;
+				}
+				int ch = Fuction.getChoice(4);
+				if (!mypok.skill[ch - 1].name_skill.equals(""))
+					System.out.println(mypok.name_pok + "ì˜" + mypok.skill[ch - 1].name_skill + "ê³µê²©!!");
+				else {
+					System.out.println("í•´ë‹¹ìŠ¤í‚¬ì€ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+					continue;
+				}
+				if (getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+						mypok.skill[ch - 1].pm) > 0) {
+					hit(pok, getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+							mypok.skill[ch - 1].pm));
+					System.out.println(pok.name_pok + "ì´(ê°€)" + getGainDamage(pok,
+							getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm), mypok.skill[ch - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else {
+					System.out.println(pok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(pok, 1);
+				}
+				View.pause();
 			}
-			else
-			{	//hit.play();
-				System.out.println(mypok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-				hit(mypok, 1);											
-			}
-			for(int i=0;i<4;i++)
-			{System.out.print(i+1+"."+mypok.skill[i].name_skill+"  ");}
-			if(pok.hp<=0) 
-			{  
-			//chal.close();
-			//win.play();
-			System.out.println("ÀüÅõ¿¡¼­ ½Â¸®ÇÏ¼Ì½À´Ï´Ù!!!");
-			Fuction.sleep(1000);
-			getExp(mypok,pok);
-			Fuction.sleep(1000);
-			levelup(mypok);
-			Fuction.sleep(1000);
-			evolve(mypok);
-			learnSkill(mypok);
-			Fuction.sleep(1000);
-			//win.close();
-			if(View.badge<=View.mytown)
-			View.badge++;
-			break;
-			} 
-			else if(mypok.hp<=0)
-			{//chal.close();
-			System.out.println("\nÀüÅõ¿¡¼­ ÆĞ¹èÇÏ¼Ì½À´Ï´Ù. ¤Ğ¤Ğ¤Ğ¤Ğ¤Ğ"); View.view_pokemonCenter2(mypok); break;}
-			int ch= Fuction.getChoice(4);
-			if(!mypok.skill[ch-1].name_skill.equals(""))
-				System.out.println(mypok.name_pok+"ÀÇ"+mypok.skill[ch-1].name_skill+"°ø°İ!!");
-			else {System.out.println("ÇØ´ç½ºÅ³Àº »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.");continue;}
-			if(getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)>0)
-			{	//hit.play();
-				hit(pok,getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm));
-				System.out.println(pok.name_pok+"ÀÌ(°¡)"+getGainDamage(pok, getDamage(mypok, mypok.skill[ch-1], mypok.skill[ch-1].pm), mypok.skill[ch-1].pm)+"ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			}
-			else 
-			{//hit.play();
-				System.out.println(pok.name_pok+"ÀÌ(°¡)"+"1ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù!!");
-			hit(pok, 1);												 }
-			View.pause();
-		}
-		
-		
+
 		}
 		pok.hp = pok.hp_max;
 	}
-	
-	public int getDamage(Pokemon pok,Skill skill,int skillType)
-	{	if(skillType ==1)
-		return pok.pap*skill.damage_skill/100;
-		return pok.map*skill.damage_skill/100;
+
+	public void Fight_challenge(Pokemon mypok, Pokemon pok, Player player) { // Bgm chal = new
+																// Bgm("src/pokemongame_/bgm/challenge.mp3");
+																// Bgm win = new Bgm("src/pokemongame_/bgm/win.mp3");
+																// Bgm hit = new Bgm("src/pokemongame_/bgm/hit.mp3");
+																// chal.play();
+		while (true) {
+			View_fight.fightmain(mypok, pok);
+			if (mypok.speed >= pok.speed) {
+				for (int i = 0; i < 4; i++) {
+					System.out.print(i + 1 + "." + mypok.skill[i].name_skill + "  ");
+				}
+				int ch = Fuction.getChoice(4);
+				if (!mypok.skill[ch - 1].name_skill.equals(""))
+					System.out.println(mypok.name_pok + "ì˜" + mypok.skill[ch - 1].name_skill + "ê³µê²©!!");
+				else {
+					System.out.println("í•´ë‹¹ìŠ¤í‚¬ì€ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+					continue;
+				}
+				if (getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+						mypok.skill[ch - 1].pm) > 0) { // hit.play();
+					hit(pok, getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+							mypok.skill[ch - 1].pm));
+					System.out.println(pok.name_pok + "ì´(ê°€)" + getGainDamage(pok,
+							getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm), mypok.skill[ch - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else {// hit.play();
+					System.out.println(pok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(pok, 1);
+				}
+				View.pause();
+
+				if (pok.hp <= 0) {
+					// chal.close();
+					// win.play();
+					System.out.println("ì „íˆ¬ì—ì„œ ìŠ¹ë¦¬í•˜ì…¨ìŠµë‹ˆë‹¤!!!");
+					Fuction.sleep(1000);
+					getExp(mypok, pok, player);
+					Fuction.sleep(1000);
+					levelup(mypok, player);
+					Fuction.sleep(1000);
+					evolve(mypok);
+					learnSkill(mypok);
+					Fuction.sleep(1000);
+					// win.close();
+					if (View.badge <= View.mytown)
+						View.badge++;
+					break;
+				} else if (mypok.hp <= 0) {// chal.close();
+					System.out.println("ì „íˆ¬ì—ì„œ íŒ¨ë°°í•˜ì…¨ìŠµë‹ˆë‹¤. ã… ã… ã… ã… ã… ");
+					View.view_pokemonCenter2(mypok);
+					break;
+				}
+
+				int ch2 = 1;
+				if (!pok.skill[ch2 - 1].name_skill.equals(""))
+					System.out.println(pok.name_pok + "ì˜" + pok.skill[ch2 - 1].name_skill + "ê³µê²©!!");
+				if (getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+						pok.skill[ch2 - 1].pm) > 0) {// hit.play();
+					hit(mypok, getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+							pok.skill[ch2 - 1].pm));
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + getGainDamage(mypok,
+							getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm), pok.skill[ch2 - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else {// hit.play();
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(mypok, 1);
+				}
+				View.pause();
+				View.pause();
+			} else {
+				int ch2 = 1;
+				if (!pok.skill[ch2 - 1].name_skill.equals(""))
+					System.out.println(pok.name_pok + "ì˜" + pok.skill[ch2 - 1].name_skill + "ê³µê²©!!");
+				if (getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+						pok.skill[ch2 - 1].pm) > 0) { // hit.play();
+					hit(mypok, getGainDamage(mypok, getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm),
+							pok.skill[ch2 - 1].pm));
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + getGainDamage(mypok,
+							getDamage(pok, pok.skill[ch2 - 1], pok.skill[ch2 - 1].pm), pok.skill[ch2 - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else { // hit.play();
+					System.out.println(mypok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(mypok, 1);
+				}
+				for (int i = 0; i < 4; i++) {
+					System.out.print(i + 1 + "." + mypok.skill[i].name_skill + "  ");
+				}
+				if (pok.hp <= 0) {
+					// chal.close();
+					// win.play();
+					System.out.println("ì „íˆ¬ì—ì„œ ìŠ¹ë¦¬í•˜ì…¨ìŠµë‹ˆë‹¤!!!");
+					Fuction.sleep(1000);
+					getExp(mypok, pok, player);
+					Fuction.sleep(1000);
+					levelup(mypok,player);
+					Fuction.sleep(1000);
+					evolve(mypok);
+					learnSkill(mypok);
+					Fuction.sleep(1000);
+					// win.close();
+					if (View.badge <= View.mytown)
+						View.badge++;
+					break;
+				} else if (mypok.hp <= 0) {// chal.close();
+					System.out.println("\nì „íˆ¬ì—ì„œ íŒ¨ë°°í•˜ì…¨ìŠµë‹ˆë‹¤. ã… ã… ã… ã… ã… ");
+					View.view_pokemonCenter2(mypok);
+					break;
+				}
+				int ch = Fuction.getChoice(4);
+				if (!mypok.skill[ch - 1].name_skill.equals(""))
+					System.out.println(mypok.name_pok + "ì˜" + mypok.skill[ch - 1].name_skill + "ê³µê²©!!");
+				else {
+					System.out.println("í•´ë‹¹ìŠ¤í‚¬ì€ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+					continue;
+				}
+				if (getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+						mypok.skill[ch - 1].pm) > 0) { // hit.play();
+					hit(pok, getGainDamage(pok, getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm),
+							mypok.skill[ch - 1].pm));
+					System.out.println(pok.name_pok + "ì´(ê°€)" + getGainDamage(pok,
+							getDamage(mypok, mypok.skill[ch - 1], mypok.skill[ch - 1].pm), mypok.skill[ch - 1].pm)
+							+ "ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+				} else {// hit.play();
+					System.out.println(pok.name_pok + "ì´(ê°€)" + "1ì˜ ë°ë¯¸ì§€ë¥¼ ì…ì—ˆë‹¤!!");
+					hit(pok, 1);
+				}
+				View.pause();
+			}
+
+		}
+		pok.hp = pok.hp_max;
 	}
-	
-	public int getGainDamage(Pokemon pok,int damage,int skillType)//¹Ş´Âµ¥¹ÌÁö
-	{   if(skillType ==1)
-		return damage-pok.pr/5;
-		return damage-pok.mr/5;
+
+	public int getDamage(Pokemon pok, Skill skill, int skillType) {
+		if (skillType == 1)
+			return pok.pap * skill.damage_skill / 100;
+		return pok.map * skill.damage_skill / 100;
 	}
-	public void hit(Pokemon pok,int damage)
-	{		pok.hp -= damage;  	}
-	public void levelup(Pokemon pok)
-	{	while(true){
-		if(pok.exp_has>=pok.exp_max){
-		pok.level++;
-		System.out.println("·¹º§ÀÌ"+pok.level+"·Î ¿Ã¶ú½À´Ï´Ù!");
-		pok.exp_has = pok.exp_has-pok.exp_max;
-		pok.exp_max += 5;
-		pok.hp +=5; 
-		pok.hp_max +=5; 
-		pok.pap += pok.level*3;
-		pok.map += pok.level*3;
-		pok.pr += pok.level*3;
-		pok.mr += pok.level*3;
-		pok.speed += pok.level*3;}
-		else break;
-	    }
+
+	public int getGainDamage(Pokemon pok, int damage, int skillType)// ë°›ëŠ”ë°ë¯¸ì§€
+	{
+		if (skillType == 1)
+			return damage - pok.pr / 5;
+		return damage - pok.mr / 5;
 	}
-	public void getExp(Pokemon mypok,Pokemon pok)
-	{   System.out.println(pok.exp_giving+"ÀÇ °æÇèÄ¡ È¹µæ!!"); 
-		mypok.exp_has += pok.exp_giving;       }
-	
-	public void evolve(Pokemon mypok) 
-	{	//Bgm evol = new Bgm("src/pokemongame_/bgm/evol.mp3");
-		
+
+	public void hit(Pokemon pok, int damage) {
+		pok.hp -= damage;
+	}
+
+	public void levelup(Pokemon pok, Player player) {
+		while (true) {
+			if (pok.exp_has >= pok.exp_max) {
+				pok.level++;
+				System.out.println("ë ˆë²¨ì´" + pok.level + "ë¡œ ì˜¬ëìŠµë‹ˆë‹¤!");
+				pok.exp_has = pok.exp_has - pok.exp_max;
+				pok.exp_max += 5;
+				pok.hp += 5;
+				pok.hp_max += 5;
+				pok.pap += pok.level * 3;
+				pok.map += pok.level * 3;
+				pok.pr += pok.level * 3;
+				pok.mr += pok.level * 3;
+				pok.speed += pok.level * 3;
+			} else
+				break;
+			if(player.exp_has>=player.exp_max) {
+				player.level++;
+				player.exp_has = player.exp_has - player.exp_max;
+				player.exp_max += 5;
+			}
+		}
+	}
+
+	public void getExp(Pokemon mypok, Pokemon pok,Player player) {
+		System.out.println(pok.exp_giving + "ì˜ ê²½í—˜ì¹˜ íšë“!!");
+		mypok.exp_has += pok.exp_giving;
+		player.exp_has +=player.exp_giving;
+	}
+
+	public void evolve(Pokemon mypok) { // Bgm evol = new Bgm("src/pokemongame_/bgm/evol.mp3");
+
 		String temp = mypok.name_pok;
-		if(mypok.level>=25 &&mypok.evol[0]==1) {
-			//bgm.close();
-			//evol.play();
-			System.out.println("¿ÀÀ×??!? "+mypok.name_pok+"ÀÇ »óÅÂ°¡?!?!");
+		if (mypok.level >= 25 && mypok.evol[0] == 1) {
+			// bgm.close();
+			// evol.play();
+			System.out.println("ì˜¤ì‰??!? " + mypok.name_pok + "ì˜ ìƒíƒœê°€?!?!");
 			Fuction.sleep(3000);
 			System.out.println(".....");
 			Fuction.sleep(3000);
 			System.out.println(".....");
 			Fuction.sleep(3000);
-			//evol.close();
-			//bgm.play();
-			if(mypok.name_pok.equals("ÀÌ»óÇØ¾¾"))
-			{
-				mypok.name_pok = "ÀÌ»óÇØÇ®";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[0]=0;
-				
+			// evol.close();
+			// bgm.play();
+			if (mypok.name_pok.equals("ì´ìƒí•´ì”¨")) {
+				mypok.name_pok = "ì´ìƒí•´í’€";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[0] = 0;
+
+			} else if (mypok.name_pok.equals("íŒŒì´ë¦¬")) {
+				mypok.name_pok = "ë¦¬ìë“œ";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[0] = 0;
+			} else if (mypok.name_pok.equals("ê¼¬ë¶€ê¸°")) {
+
+				mypok.name_pok = "ì–´ë‹ˆë¶€ê¸°";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[0] = 0;
 			}
-			else if(mypok.name_pok.equals("ÆÄÀÌ¸®"))
-			{
-				mypok.name_pok = "¸®ÀÚµå";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[0]=0;
-			}	
-			else if(mypok.name_pok.equals("²¿ºÎ±â"))
-			{
-				
-				mypok.name_pok = "¾î´ÏºÎ±â";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[0]=0;
-			}
-		} else if(mypok.level>=50 &&mypok.evol[1]==1) {
-			//bgm.close();
-			//evol.play();
-			System.out.println("¿ÀÀ×??!? "+mypok.name_pok+"ÀÇ »óÅÂ°¡?!?!");
+		} else if (mypok.level >= 50 && mypok.evol[1] == 1) {
+			// bgm.close();
+			// evol.play();
+			System.out.println("ì˜¤ì‰??!? " + mypok.name_pok + "ì˜ ìƒíƒœê°€?!?!");
 			Fuction.sleep(3000);
 			System.out.println(".....");
 			Fuction.sleep(3000);
 			System.out.println(".....");
 			Fuction.sleep(3000);
-			if(mypok.name_pok.equals("ÀÌ»óÇØÇ®"))
-			{
-				mypok.name_pok = "ÀÌ»óÇØ²É";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[1]=0;
+			if (mypok.name_pok.equals("ì´ìƒí•´í’€")) {
+				mypok.name_pok = "ì´ìƒí•´ê½ƒ";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[1] = 0;
+			} else if (mypok.name_pok.equals("ë¦¬ìë“œ")) {
+				mypok.name_pok = "ë¦¬ìëª½";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[1] = 0;
+			} else if (mypok.name_pok.equals("ì–´ë‹ˆë¶€ê¸°")) {
+				mypok.name_pok = "ê±°ë¶ì™•";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[1] = 0;
 			}
-			else if(mypok.name_pok.equals("¸®ÀÚµå"))
-			{
-				mypok.name_pok = "¸®ÀÚ¸ù";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[1]=0;
-			}	
-			else if(mypok.name_pok.equals("¾î´ÏºÎ±â"))
-			{
-				mypok.name_pok = "°ÅºÏ¿Õ";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[1]=0;
-			}
-		} else if(mypok.level>=75 &&mypok.evol[2]==1) {
-			if(mypok.name_pok.equals("ÀÌ»óÇØ²É"))
-			{
-				mypok.name_pok = "¸Ş°¡ÀÌ»óÇØ²É";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[2]=0;
-			}
-			else if(mypok.name_pok.equals("¸®ÀÚ¸ù"))
-			{
-				mypok.name_pok = "¸Ş°¡¸®ÀÚ¸ùY";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[2]=0;
-			}	
-			else if(mypok.name_pok.equals("°ÅºÏ¿Õ"))
-			{
-				mypok.name_pok = "¸Ş°¡°ÅºÏ¿Õ";
-				System.out.println(temp+"ÀÌ(°¡) "+mypok.name_pok+"À¸·Î ÁøÈ­Çß´Ù!!!");
-				mypok.evol[2]=0;
+		} else if (mypok.level >= 75 && mypok.evol[2] == 1) {
+			if (mypok.name_pok.equals("ì´ìƒí•´ê½ƒ")) {
+				mypok.name_pok = "ë©”ê°€ì´ìƒí•´ê½ƒ";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[2] = 0;
+			} else if (mypok.name_pok.equals("ë¦¬ìëª½")) {
+				mypok.name_pok = "ë©”ê°€ë¦¬ìëª½Y";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[2] = 0;
+			} else if (mypok.name_pok.equals("ê±°ë¶ì™•")) {
+				mypok.name_pok = "ë©”ê°€ê±°ë¶ì™•";
+				System.out.println(temp + "ì´(ê°€) " + mypok.name_pok + "ìœ¼ë¡œ ì§„í™”í–ˆë‹¤!!!");
+				mypok.evol[2] = 0;
 			}
 		}
-		
-		View.pause();View.pause();
-		//evol.close();
-		
+
+		View.pause();
+		View.pause();
+		// evol.close();
+
 	}
-	
+
 	public void learnSkill(Pokemon mypok) {
-		if(mypok.level>=10 &&mypok.learnSkill[0]==1) {
-			if(mypok.name_pok.equals("ÀÌ»óÇØ¾¾")) {
+		if (mypok.level >= 10 && mypok.learnSkill[0] == 1) {
+			if (mypok.name_pok.equals("ì´ìƒí•´ì”¨")) {
 				mypok.skill[1] = Skill_arr.skills[31];
-			} else if(mypok.name_pok.equals("ÆÄÀÌ¸®")) {
+			} else if (mypok.name_pok.equals("íŒŒì´ë¦¬")) {
 				mypok.skill[1] = Skill_arr.skills[4];
-			} else if(mypok.name_pok.equals("²¿ºÎ±â")) {
+			} else if (mypok.name_pok.equals("ê¼¬ë¶€ê¸°")) {
 				mypok.skill[1] = Skill_arr.skills[39];
 			}
-			System.out.println(mypok.name_pok+"ÀÌ(°¡) »õ·Î¿î ±â¼ú");
-			System.out.println(mypok.skill[1].name_skill+"À»(¸¦) ¹è¿ü´Ù!!");	
-			mypok.learnSkill[0]=0;
-		}else if(mypok.level>=22 &&mypok.learnSkill[1]==1) {
-			if(mypok.name_pok.equals("ÀÌ»óÇØ¾¾")) {
+			System.out.println(mypok.name_pok + "ì´(ê°€) ìƒˆë¡œìš´ ê¸°ìˆ ");
+			System.out.println(mypok.skill[1].name_skill + "ì„(ë¥¼) ë°°ì› ë‹¤!!");
+			mypok.learnSkill[0] = 0;
+		} else if (mypok.level >= 22 && mypok.learnSkill[1] == 1) {
+			if (mypok.name_pok.equals("ì´ìƒí•´ì”¨")) {
 				mypok.skill[2] = Skill_arr.skills[23];
-			} else if(mypok.name_pok.equals("ÆÄÀÌ¸®")) {
+			} else if (mypok.name_pok.equals("íŒŒì´ë¦¬")) {
 				mypok.skill[2] = Skill_arr.skills[6];
-			} else if(mypok.name_pok.equals("²¿ºÎ±â")) {
+			} else if (mypok.name_pok.equals("ê¼¬ë¶€ê¸°")) {
 				mypok.skill[2] = Skill_arr.skills[12];
 			}
-			System.out.println(mypok.name_pok+"ÀÌ(°¡) »õ·Î¿î ±â¼ú");
-			System.out.println(mypok.skill[2].name_skill+"À»(¸¦) ¹è¿ü´Ù!!");	
-			mypok.learnSkill[1]=0;
-		}else if(mypok.level>=33 &&mypok.learnSkill[2]==1) {
-			if(mypok.name_pok.equals("ÀÌ»óÇØÇ®")) {
+			System.out.println(mypok.name_pok + "ì´(ê°€) ìƒˆë¡œìš´ ê¸°ìˆ ");
+			System.out.println(mypok.skill[2].name_skill + "ì„(ë¥¼) ë°°ì› ë‹¤!!");
+			mypok.learnSkill[1] = 0;
+		} else if (mypok.level >= 33 && mypok.learnSkill[2] == 1) {
+			if (mypok.name_pok.equals("ì´ìƒí•´í’€")) {
 				mypok.skill[3] = Skill_arr.skills[33];
-			} else if(mypok.name_pok.equals("¸®ÀÚµå")) {
+			} else if (mypok.name_pok.equals("ë¦¬ìë“œ")) {
 				mypok.skill[3] = Skill_arr.skills[7];
-			} else if(mypok.name_pok.equals("¾î´ÏºÎ±â")) {
+			} else if (mypok.name_pok.equals("ì–´ë‹ˆë¶€ê¸°")) {
 				mypok.skill[3] = Skill_arr.skills[40];
 			}
-			System.out.println(mypok.name_pok+"ÀÌ(°¡) »õ·Î¿î ±â¼ú");
-			System.out.println(mypok.skill[3].name_skill+"À»(¸¦) ¹è¿ü´Ù!!");	
-			mypok.learnSkill[2]=0;
-		}else if(mypok.level>=45 &&mypok.learnSkill[3]==1) {
-			if(mypok.name_pok.equals("ÀÌ»óÇØÇ®")) {
+			System.out.println(mypok.name_pok + "ì´(ê°€) ìƒˆë¡œìš´ ê¸°ìˆ ");
+			System.out.println(mypok.skill[3].name_skill + "ì„(ë¥¼) ë°°ì› ë‹¤!!");
+			mypok.learnSkill[2] = 0;
+		} else if (mypok.level >= 45 && mypok.learnSkill[3] == 1) {
+			if (mypok.name_pok.equals("ì´ìƒí•´í’€")) {
 				mypok.skill[0] = Skill_arr.skills[34];
-			} else if(mypok.name_pok.equals("¸®ÀÚµå")) {
+			} else if (mypok.name_pok.equals("ë¦¬ìë“œ")) {
 				mypok.skill[0] = Skill_arr.skills[38];
-			} else if(mypok.name_pok.equals("¾î´ÏºÎ±â")) {
+			} else if (mypok.name_pok.equals("ì–´ë‹ˆë¶€ê¸°")) {
 				mypok.skill[0] = Skill_arr.skills[41];
 			}
-			System.out.println(mypok.name_pok+"ÀÌ(°¡) »õ·Î¿î ±â¼ú");
-			System.out.print(mypok.skill[0].name_skill+"À»(¸¦) ¹è¿ü´Ù!!");	
-			mypok.learnSkill[3]=0;
-		}else if(mypok.level>=56 &&mypok.learnSkill[4]==1) {
-			if(mypok.name_pok.equals("ÀÌ»óÇØ²É")) {
+			System.out.println(mypok.name_pok + "ì´(ê°€) ìƒˆë¡œìš´ ê¸°ìˆ ");
+			System.out.print(mypok.skill[0].name_skill + "ì„(ë¥¼) ë°°ì› ë‹¤!!");
+			mypok.learnSkill[3] = 0;
+		} else if (mypok.level >= 56 && mypok.learnSkill[4] == 1) {
+			if (mypok.name_pok.equals("ì´ìƒí•´ê½ƒ")) {
 				mypok.skill[1] = Skill_arr.skills[35];
-			} else if(mypok.name_pok.equals("¸®ÀÚ¸ù")) {
+			} else if (mypok.name_pok.equals("ë¦¬ìëª½")) {
 				mypok.skill[1] = Skill_arr.skills[22];
-			} else if(mypok.name_pok.equals("°ÅºÏ¿Õ")) {
+			} else if (mypok.name_pok.equals("ê±°ë¶ì™•")) {
 				mypok.skill[1] = Skill_arr.skills[19];
 			}
-			System.out.println(mypok.name_pok+"ÀÌ(°¡) »õ·Î¿î ±â¼ú");
-			System.out.println(mypok.skill[1].name_skill+"À»(¸¦) ¹è¿ü´Ù!!");	
-			mypok.learnSkill[4]=0;
-		}else if(mypok.level>=68 &&mypok.learnSkill[5]==1) {
-			if(mypok.name_pok.equals("ÀÌ»óÇØ²É")) {
+			System.out.println(mypok.name_pok + "ì´(ê°€) ìƒˆë¡œìš´ ê¸°ìˆ ");
+			System.out.println(mypok.skill[1].name_skill + "ì„(ë¥¼) ë°°ì› ë‹¤!!");
+			mypok.learnSkill[4] = 0;
+		} else if (mypok.level >= 68 && mypok.learnSkill[5] == 1) {
+			if (mypok.name_pok.equals("ì´ìƒí•´ê½ƒ")) {
 				mypok.skill[2] = Skill_arr.skills[36];
-			} else if(mypok.name_pok.equals("¸®ÀÚ¸ù")) {
+			} else if (mypok.name_pok.equals("ë¦¬ìëª½")) {
 				mypok.skill[2] = Skill_arr.skills[38];
-			} else if(mypok.name_pok.equals("°ÅºÏ¿Õ")) {
+			} else if (mypok.name_pok.equals("ê±°ë¶ì™•")) {
 				mypok.skill[2] = Skill_arr.skills[26];
 			}
-			System.out.println(mypok.name_pok+"ÀÌ(°¡) »õ·Î¿î ±â¼ú");
-			System.out.println(mypok.skill[2].name_skill+"À»(¸¦) ¹è¿ü´Ù!!");	
-			mypok.learnSkill[5]=0;
-		}else if(mypok.level>=81 &&mypok.learnSkill[6]==1) {
-			if(mypok.name_pok.equals("¸Ş°¡ÀÌ»óÇØ²É")) {
+			System.out.println(mypok.name_pok + "ì´(ê°€) ìƒˆë¡œìš´ ê¸°ìˆ ");
+			System.out.println(mypok.skill[2].name_skill + "ì„(ë¥¼) ë°°ì› ë‹¤!!");
+			mypok.learnSkill[5] = 0;
+		} else if (mypok.level >= 81 && mypok.learnSkill[6] == 1) {
+			if (mypok.name_pok.equals("ë©”ê°€ì´ìƒí•´ê½ƒ")) {
 				mypok.skill[3] = Skill_arr.skills[37];
-			} else if(mypok.name_pok.equals("¸Ş°¡¸®ÀÚ¸ùY")) {
+			} else if (mypok.name_pok.equals("ë©”ê°€ë¦¬ìëª½Y")) {
 				mypok.skill[3] = Skill_arr.skills[30];
-			} else if(mypok.name_pok.equals("¸Ş°¡°ÅºÏ¿Õ")) {
+			} else if (mypok.name_pok.equals("ë©”ê°€ê±°ë¶ì™•")) {
 				mypok.skill[3] = Skill_arr.skills[42];
 			}
-			System.out.println(mypok.name_pok+"ÀÌ(°¡) »õ·Î¿î ±â¼ú");
-			System.out.println(mypok.skill[3].name_skill+"À»(¸¦) ¹è¿ü´Ù!!");	
-			mypok.learnSkill[6]=0;
+			System.out.println(mypok.name_pok + "ì´(ê°€) ìƒˆë¡œìš´ ê¸°ìˆ ");
+			System.out.println(mypok.skill[3].name_skill + "ì„(ë¥¼) ë°°ì› ë‹¤!!");
+			mypok.learnSkill[6] = 0;
 		}
-		
-		
-		
+
 	}
 
 }
