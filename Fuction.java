@@ -1,5 +1,8 @@
 
 
+package pokemongame_;
+
+
 import java.util.Scanner;
 
 public class Fuction {
@@ -15,7 +18,7 @@ public class Fuction {
 		     cnt++;
 		   }
 		   if(cnt>0) 
-		   {System.out.println("¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");continue;}
+		   {System.out.println("ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");continue;}
 		   return Integer.parseInt(ch);
 	   }
 	}
@@ -29,9 +32,9 @@ public class Fuction {
 		     cnt++;
 		   }
 		   if(cnt>0) 
-		   {System.out.println("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");continue;}
+		   {System.out.println("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");continue;}
 		   if(Math.abs(Integer.parseInt(ch))>a)
-		   {System.out.println("¹üÀ§³»ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");continue;}
+		   {System.out.println("ë²”ìœ„ë‚´ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");continue;}
 		   return Integer.parseInt(ch);
 	   }
 	}
