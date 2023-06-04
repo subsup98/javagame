@@ -1,7 +1,4 @@
 
-package pokemongame_;
-
-
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,7 +21,7 @@ public class Load {
 			temp = (Pokemon[])oin.readObject();
 			System.out.println("불러오기 성공!!");
 		} catch (FileNotFoundException e) {
-			System.out.println("저장된 파일이 없습니다..");
+			System.out.println("저장된 파일이 없습니다.");
 			error_load=1;
 		} catch (IOException e) {
 			e.printStackTrace();
