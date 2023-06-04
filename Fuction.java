@@ -1,8 +1,5 @@
 
 
-package pokemongame_;
-
-
 import java.util.Scanner;
 
 public class Fuction {
