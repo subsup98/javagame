@@ -1,4 +1,7 @@
 
+package pokemongame_;
+
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,9 +22,9 @@ public class Load {
 			oin = new ObjectInputStream(bin);
 			
 			temp = (Pokemon[])oin.readObject();
-			System.out.println("ºÒ·¯¿À±â ¼º°ø!!");
+			System.out.println("ë¶ˆëŸ¬ì˜¤ê¸° ì„±ê³µ!!");
 		} catch (FileNotFoundException e) {
-			System.out.println("ÀúÀåµÈ ÆÄÀÏÀÌ ¾ø½À´Ï´Ù.");
+			System.out.println("ì €ì¥ëœ íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤..");
 			error_load=1;
 		} catch (IOException e) {
 			e.printStackTrace();
