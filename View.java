@@ -1,6 +1,3 @@
-package pokemongame_;
-
-
 import java.io.IOException;
 
 public class View 
@@ -12,10 +9,10 @@ public class View
 	
 	public static void view_town(String name_town) 
 	{
-		System.out.println("===========================================================================");
-		System.out.println("                       \t\t"+name_town+"에 오신것을 환영합니다!!");
-		System.out.println("    1.사냥터 2.내 포켓몬 3.포켓몬센터 4.체육관도전 5.마을 이동 6.트레이너 정보 7.저장하기 8.불러오기 ");
-		System.out.println("===========================================================================");
+		System.out.println("==============================================================");
+		System.out.println("    \t\t"+name_town+"에 오신것을 환영합니다!!");
+		System.out.println("    1.사냥터 2.내 포켓몬 3.포켓몬센터 4.체육관도전  5.마을 이동  6.저장하기 7.불러오기 ");
+		System.out.println("==============================================================");
 	}
 	public static void view_dungeon(int level)
 	{   int index=1;
@@ -24,22 +21,28 @@ public class View
 		   System.out.println(index++ +". "+i+"레벨 몬스터 사냥");	
 		}
 	}
-	public static void view_mypok(Pokemon mypok)
-	{
-		System.out.println("이름 : "+mypok.name_pok);
-		System.out.println("레벨  : "+mypok.level);
-		System.out.println("체력 : "+mypok.hp+" / "+mypok.hp_max);
-		System.out.println("보유경험치 : "+mypok.exp_has);
-		System.out.println("현재레벨 최대 경험치 : "+mypok.exp_max);
-		System.out.println("보유기술  ");
-		for(int i=0;i<4;i++)
-		{   
-			System.out.print(i+1+"."+mypok.skill[i].name_skill+"  ");
-		}
-		pause();
+	public static void view_mypok(Pokemon[] pokemons) {
+	    for (int i = 0; i < pokemons.length; i++) {
+	        Pokemon mypok = pokemons[i];
+	        if (mypok != null) {
+	            System.out.println("포켓몬 " + (i + 1) + " 정보:");
+	            System.out.println("이름 : " + mypok.name_pok);
+	            System.out.println("레벨 : " + mypok.level);
+	            System.out.println("체력 : " + mypok.hp + " / " + mypok.hp_max);
+	            System.out.println("보유 경험치 : " + mypok.exp_has);
+	            System.out.println("현재 레벨 최대 경험치 : " + mypok.exp_max);
+	            System.out.println("보유 기술 :");
+	            for (int j = 0; j < 4; j++) {
+	                System.out.print(j + 1 + "." + mypok.skill[j].name_skill + "  ");
+	            }
+	            System.out.println();
+	        }
+	    }
+	    pause();
 	}
-	public static void view_pokemonCenter(Pokemon mypok) 
-	{  
+		public static void view_pokemonCenter(Pokemon mypok) 
+	{   //Bgm pokcen = new Bgm("src/pokemongame_/bgm/pokemoncenter.mp3");
+		//pokcen.play();
 		System.out.println("==================================");
 		System.out.println("    포켓몬센터에 오신것을 환영합니다!!     ");
 		System.out.println("==================================");
@@ -61,6 +64,8 @@ public class View
 		System.out.println("    포켓몬센터에 오신것을 환영합니다!!     ");
 		System.out.println("==================================");
 		System.out.println("포켓몬을 회복시킵니다.....");
+		//pokcen.close();
+	    //new Bgm("src/pokemongame_/bgm/heal.mp3").play();
 	    Fuction.sleep(3000);
 		System.out.println("회복완료!!");
 		Fuction.sleep(1000);
@@ -80,13 +85,6 @@ public class View
 		   System.out.println(i+1 +". "+name_town[i]+"로 이동");	
 		}
 	}
-	
-	public static void view_playerInfo(Player player) {
-		System.out.println("플레이어 정보를 확인합니다.");
-        System.out.println("플레이어 이름: " + player.getName());
-        System.out.println("레벨: " + player.getLevel());
-        System.out.println("경험치: " + player.getExp());
-    }
 	
 	public static void error()
 	{System.out.println("잘못입력하셨습니다.");}
