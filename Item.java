@@ -1,106 +1,136 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Item {
     private String name;
-    private int number;  //필드
+    private int number;
+    private static List<Item> itemList = new ArrayList<>();
 
-    public Item(String name, int number) { //아이템 생성자(아이템이름과 갯수초기화
+    public Item(String name, int number) {
         this.name = name;
         this.number = number;
     }
-   
-    public void use_Item(String Item_Name, int number) {
-    	    if (number > 0) {
-    	        System.out.println(Item_Name + "을(를) 사용했습니다.");
-    	        number--;
-    	    } else {
-    	        System.out.println(Item_Name + "이(가) 없습니다.");
-    	    }
+    
+
+    public void printInfo() {
+        System.out.println("이름: " + getName());
+        System.out.println("개수: " + getNumber());
     }
 
-    public void set_Item(String Item_Name, int number) {
-        this.name = Item_Name;
+    public void useItem() {
+        if (number > 0) {
+            System.out.println(name + "을(를) 사용했습니다.");
+            number--;
+        } else {
+            System.out.println(name + "이(가) 없습니다.");
+        }
+    }
+
+
+    public void setNumber(int number) {
         this.number = number;
     }
-    
 
-    
-    public String get_Item(String Item_Name, int number) {
-        Item item = new Item(Item_Name, number);
-        return item.getName() + " " + number + "개를 획득했습니다.";
-        
-    }
-    
     public String getName() {
         return name;
     }
+
     public int getNumber() {
         return number;
     }
 
+    public void get(int count) {
+        setNumber(getNumber() + count);
+        System.out.println(getName() + "을(를) " + count + "개 획득했습니다. 현재 개수: " + getNumber());
+        itemList.add(this); // itemList에 아이템 추가
+    }
+
+    
     public static class HealingPotion extends Item {
         private int effect;
 
         public HealingPotion(String name, int effect) {
-            super(name, 1); //아이템 생성갯수 1	
-            this.effect = effect; //효과 설정
+            super(name, 0);
+            this.effect = effect;
         }
 
         public int getEffect() {
             return effect;
         }
-        public void printInfo() {
-            System.out.println("이름: " + getName());
-            System.out.println("개수: " + getNumber());
-        }
     }
-	/* 만약 포션종류를 늘리고자 하면 이런식으로 늘리면 될것 같아요
-	 * public static class BetterHealingPotion extends HealingPotion { public
-	 * HealingPotion2(String name, int effect) { super(name, effect); } }
-	 */
-
-
-    public static class MonsterBall extends Item {
-        private int catchRate;
-        private int trainerLevel;
-
-        public MonsterBall(String name, int trainerLevel, int catchRate) {
-            super(name, 1);
-            this.catchRate = catchRate; //포획비율을 몇으로 설정해두면 좋을까요 예)this.catchRate= 50;
-            this.trainerLevel = trainerLevel;
-        }
-
-        public int getCatchRate() {
-            return catchRate + (trainerLevel * 1); //기존 포획비율+트레이너레벨별확률?
-        }
-
-        public int getTrainerLevel() {
-            return trainerLevel;
-        }
-        public void printInfo() {
-            System.out.println("이름: " + getName());
-            System.out.println("개수: " + getNumber());
-        }
-    }
-
 
     public static class Candy extends Item {
         private int exp;
 
         public Candy(String name, int exp) {
-            super(name, 1);
-            this.exp = exp; // 혹은 exp를 하나의 수치값으로 고정해두는건 어떨까요
+            super(name, 0);
+            this.exp = exp;
         }
 
         public int getExp() {
             return exp;
         }
-        public void printInfo() {
-            System.out.println("이름: " + getName());
-            System.out.println("개수: " + getNumber());
-        }
-        
     }
+
+    public static class MonsterBall extends Item {
+        private double catchRate;
+        private int trainerLevel;
+
+        public MonsterBall(String name, int trainerLevel, double catchRate) {
+            super(name, 0);
+            this.catchRate = 0.4 + (trainerLevel * 0.01);
+            this.trainerLevel = trainerLevel;
+        }
+
+        public double getCatchRate() {
+            return catchRate;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+        HealingPotion healingPotion = new HealingPotion("회복 물약", 50);
+        Candy candy = new Candy("사탕", 10);
+        MonsterBall monsterBall = new MonsterBall("몬스터볼", 5, 0.4);
+
+        while (running) {
+            System.out.println("==== 도구 확인 ====");
+            System.out.println("도구를 확인합니다.");
+            healingPotion.printInfo();
+            candy.printInfo();
+            monsterBall.printInfo();
+            System.out.println("================");
+            System.out.println("1. 회복 물약 사용");
+            System.out.println("2. 사탕 사용");
+            System.out.println("3. 돌아가기");
+            System.out.print("선택: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    healingPotion.useItem();
+                    healingPotion.printInfo();
+                    break;
+                case 2:
+                    candy.useItem();
+                    candy.printInfo();
+                    break;
+                case 3:
+                    System.out.println("도구 확인을 종료합니다.");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("유효하지 않은 선택입니다.");
+            }
+        }
+
+        scanner.close();
+    }
+
+
 }
-
-
